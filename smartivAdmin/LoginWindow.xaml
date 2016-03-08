@@ -1,0 +1,18 @@
+﻿<Window x:Class="smartivAdmin.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="500" Width="800"
+        Background="Azure"
+        >
+    <Grid>
+        <Image Source="Resources/image1.jpg" HorizontalAlignment="Left" Height="406" Margin="27,31,0,0" VerticalAlignment="Top" Width="324">
+
+        </Image>
+        <TextBox x:Name="tbUserName" HorizontalAlignment="Left" Height="23" Margin="377,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
+        <PasswordBox x:Name="tbPassword"  PasswordChar="*" HorizontalAlignment="Left" Height="23" Margin="377,142,0,0"  VerticalAlignment="Top" Width="170"/>
+        <Button Content="SignIn" HorizontalAlignment="Left" Margin="437,236,0,0" VerticalAlignment="Top" Width="110" Height="33" Click="SignIn_Click"/>
+        <Label Content="UserName" HorizontalAlignment="Left" Margin="377,44,0,0" VerticalAlignment="Top"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="377,116,0,0" VerticalAlignment="Top"/>
+       
+    </Grid>
+</Window>

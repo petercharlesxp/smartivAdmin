@@ -1,0 +1,47 @@
+﻿<Window x:Class="smartivAdmin.PatientDetail"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PatientDetail"  Height="500" Width="800" Background="Azure" ResizeMode="CanMinimize"  ScrollViewer.HorizontalScrollBarVisibility="Visible">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="343*"/>
+            <ColumnDefinition Width="451*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56*"/>
+            <RowDefinition Height="56*"/>
+            <RowDefinition Height="47*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="214*"/>
+        </Grid.RowDefinitions>
+
+        <Label  Content="First Name"  Margin="39,20,204,11"/>
+        <Label  Content="Last Name" Margin="39,20,204,11" Grid.Row="1"/>
+        <Label  Content="Middle Name" Margin="39,14,195,9" Grid.Row="2"/>
+        <Label  Content="Sex"  Margin="39,18,204,7" RenderTransformOrigin="0.275,-4.04" Grid.Row="3"/>
+        <Label x:Name="hiddenFieldPatientID_PatientSearch" Margin="10,262,0,-48" Visibility="Hidden" Grid.Row="5" Grid.ColumnSpan="2"></Label>
+        <TextBox x:Name="TextBox_EditFirstNamePatientDetailWindow" TextWrapping="Wrap" Margin="158,25,11,11"    />
+        <TextBox x:Name="TextBox_EditLastNamePatientDetailWindow" TextWrapping="Wrap" Margin="158,18,11,18" Grid.Row="1"   />
+        <TextBox x:Name="TextBox_EditMiddleNamePatientDetailWindow" TextWrapping="Wrap" Margin="158,11,11,13" Grid.Row="2"  />
+        <ComboBox x:Name="ComboBox_EditSexPatientDetailWindow" Margin="158,18,42,10" Grid.Row="3"   >
+            <ComboBoxItem Tag="MALE">MALE</ComboBoxItem>
+            <ComboBoxItem Tag="FEMALE">FEMALE</ComboBoxItem>
+        </ComboBox>
+        <Button x:Name="Save_PatientDetails" Click="SaveButtonClick_PatientDetail"    Content="Edit" Margin="157,7,118,10" RenderTransformOrigin="0.173,0.219" Grid.Row="4" />
+        <Button x:Name="Discharge_Patient" Click="DischargeButtonClick_PatientDetail" Content="Discharge" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="32" Width="66"  Margin="248,7,0,0" Grid.Row="4" />
+        <Image x:Name="ImageDeviceWeight_PatientDetailWindow"  HorizontalAlignment="Left" Height="134"   Margin="87,25,0,0" VerticalAlignment="Top" Width="116" Grid.RowSpan="3" Grid.Column="1"/>
+        <ProgressBar x:Name="ProgressDeviceHealth_PatientDetailWindow" HorizontalAlignment="Left" Height="14" Margin="166,10,0,0" VerticalAlignment="Top" Width="37" Grid.Row="4" Grid.Column="1" RenderTransformOrigin="0.432,0.357"/>
+        <Label Content="Device Health"  Margin="48,6,304,10" Grid.Row="4" Grid.Column="1"/>
+        <Label Content="Weight Left" Margin="49,18,316,0" VerticalAlignment="Top" Height="27" Grid.Row="3" Grid.Column="1"/>
+        <TextBox x:Name="TextWeightLeft_PatientDetailWindow" HorizontalAlignment="Left" Height="23" Margin="166,17,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="37" Grid.Row="3" Grid.Column="1"/>
+        <Label Content="Additional Information" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="5" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Room" HorizontalAlignment="Left" Margin="10,61,0,0" Grid.Row="5" VerticalAlignment="Top"/>
+        <Label Content="Floor" HorizontalAlignment="Left" Margin="10,92,0,0" Grid.Row="5" VerticalAlignment="Top"/>
+        <Label Content="" HorizontalAlignment="Left" Margin="10,123,0,0" Grid.Row="5" VerticalAlignment="Top"/>
+        <Label Content="N/A" HorizontalAlignment="Left" Margin="69,61,0,0" Grid.Row="5" VerticalAlignment="Top"/>
+        <Label Content="N/A" HorizontalAlignment="Left" Margin="69,92,0,0" Grid.Row="5" VerticalAlignment="Top"/>
+        <Label x:Name="hiddenFieldPatientID_PatientDetails" Content="Label" Grid.Column="1" HorizontalAlignment="Left" Margin="393,178,0,0" Grid.Row="5" VerticalAlignment="Top" Visibility="Hidden"/>
+
+    </Grid>
+</Window>
