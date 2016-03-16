@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace smartivAdmin.Data
+namespace smartivAdmin.Reop
 {
-    public class Class1
+    public class NurseRepo
     {
     }
 }

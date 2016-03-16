@@ -12,6 +12,8 @@ Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "smartivAdminSetup", "smarti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "smartivAdmin.Data", "smartivAdmin.Data\smartivAdmin.Data.csproj", "{7D16F212-4BC5-4B7E-B7C1-E535B832469F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "smartivAdmin.Reop", "smartivAdmin.Reop\smartivAdmin.Reop.csproj", "{33337524-AE17-4BCF-93AE-DB5C47EB39BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		CD_ROM|Any CPU = CD_ROM|Any CPU
@@ -51,6 +53,16 @@ Global
 		{7D16F212-4BC5-4B7E-B7C1-E535B832469F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7D16F212-4BC5-4B7E-B7C1-E535B832469F}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
 		{7D16F212-4BC5-4B7E-B7C1-E535B832469F}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{33337524-AE17-4BCF-93AE-DB5C47EB39BE}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{33337524-AE17-4BCF-93AE-DB5C47EB39BE}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{33337524-AE17-4BCF-93AE-DB5C47EB39BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33337524-AE17-4BCF-93AE-DB5C47EB39BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33337524-AE17-4BCF-93AE-DB5C47EB39BE}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{33337524-AE17-4BCF-93AE-DB5C47EB39BE}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{33337524-AE17-4BCF-93AE-DB5C47EB39BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33337524-AE17-4BCF-93AE-DB5C47EB39BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33337524-AE17-4BCF-93AE-DB5C47EB39BE}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{33337524-AE17-4BCF-93AE-DB5C47EB39BE}.SingleImage|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
