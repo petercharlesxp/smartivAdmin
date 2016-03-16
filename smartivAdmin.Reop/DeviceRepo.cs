@@ -7,17 +7,15 @@ using System.Threading.Tasks;
 
 namespace smartivAdmin.Reop
 {
-    class DeviceRepo
+    public class DeviceRepo
     {
-        public class DeviceReop
+        public List<device> GetAllDevices()
         {
-            public List<device> GetDevices()
+            using (var dbContext = new SmartivContext())
             {
-                using (var dbContext = new SmartivContext())
-                {
-                    return dbContext.devices.ToList();
-                }
+                return dbContext.devices.ToList();
             }
         }
     }
 }
+

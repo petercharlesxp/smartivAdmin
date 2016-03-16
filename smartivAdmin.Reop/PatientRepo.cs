@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace smartivAdmin.Reop
 {
-    class PatientRepo
+    public class PatientRepo
     {
     }
 }
