@@ -223,5 +223,12 @@ namespace smartivAdmin.Data
                 .Property(e => e.deviceTimeStamp)
                 .IsUnicode(false);
         }
+
+        //public int SaveChangesCount { get; private set; }
+        //public int SaveChanges()
+        //{
+        //    this.SaveChangesCount++;
+        //    return 1;
+        //}
     }
 }
