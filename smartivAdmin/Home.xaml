@@ -244,7 +244,7 @@
                                         <TextBox x:Name="TextBoxUserDeviceInfo" HorizontalAlignment="Left" Height="23" Margin="107,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.916,0.456"/>
                                         <Label Content="extra" HorizontalAlignment="Left" Margin="17,154,0,0" VerticalAlignment="Top"/>
                                         <TextBox x:Name="TextBoxextra" HorizontalAlignment="Left" Height="23" Margin="107,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.991,0.792"/>
-                                        <Button Click="AddNurseButton_OnClick" x:Name="AddDevice" Content="Add Nurse" HorizontalAlignment="Left" Margin="134,198,0,0" VerticalAlignment="Top" Width="75"/>
+                                        <Button Click="AddNurseButton_OnClick" x:Name="AddDevice" Content="Add Device" HorizontalAlignment="Left" Margin="134,198,0,0" VerticalAlignment="Top" Width="75"/>
                                     </Grid>
                                 </TabItem>
                                 <TabItem Header="TabItem">
