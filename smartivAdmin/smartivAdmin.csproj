@@ -228,6 +228,16 @@
   <ItemGroup>
     <Folder Include="Views\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\smartivAdmin.Data\smartivAdmin.Data.csproj">
+      <Project>{7d16f212-4bc5-4b7e-b7c1-e535b832469f}</Project>
+      <Name>smartivAdmin.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\smartivAdmin.Reop\smartivAdmin.Reop.csproj">
+      <Project>{33337524-ae17-4bcf-93ae-db5c47eb39be}</Project>
+      <Name>smartivAdmin.Reop</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

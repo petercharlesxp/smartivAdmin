@@ -15,6 +15,7 @@ using System.Data;
 using MySql.Data;
 using MySql.Data.Entity;
 using MySql.Data.MySqlClient;
+using smartivAdmin.ViewModels;
 
 namespace smartivAdmin
 {
@@ -30,7 +31,7 @@ namespace smartivAdmin
         {
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
-
+            DataContext = new HomeViewModel();
         }
 
 

@@ -236,19 +236,16 @@
                                 <TabItem Header="Add Device">
                                     <Grid Background="#FFE5E5E5">
                                         <Label FontWeight="Bold" FontSize="18" Content="Add New Device" Margin="0,0,65,377"/>
-                                        <TextBox x:Name="TextBoxDeviceMacID" Height="23" TextWrapping="Wrap" Width="120" Margin="107,39,329,349" RenderTransformOrigin="0.895,0.472"/>
+                                        <TextBox x:Name="TextBoxDeviceMacID" Text="{Binding NewDeviceMacID}" Height="23" TextWrapping="Wrap" Width="120" Margin="107,39,329,349" RenderTransformOrigin="0.895,0.472"/>
                                         <Label Content="Device Mac ID" HorizontalAlignment="Left" Margin="16,34,0,0" VerticalAlignment="Top"/>
-                                        <TextBox x:Name="TextBoxDeviceStatus" Height="23" TextWrapping="Wrap" Width="120" Margin="107,77,329,311" RenderTransformOrigin="0.525,2.304"/>
-                                        <Label Content="Device Status" HorizontalAlignment="Left" Margin="17,74,0,0" VerticalAlignment="Top"/>
+                                        <TextBox x:Name="TextBoxDeviceStatus" Text="{Binding NewDeviceStatus}" Height="23" TextWrapping="Wrap" Width="120" Margin="107,77,329,311" RenderTransformOrigin="0.525,2.304"/>
+                                        <Label Content="Device Status"  HorizontalAlignment="Left" Margin="17,74,0,0" VerticalAlignment="Top"/>
                                         <Label Content="Device Info" HorizontalAlignment="Left" Margin="16,114,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.316,-0.231"/>
-                                        <TextBox x:Name="TextBoxUserDeviceInfo" HorizontalAlignment="Left" Height="23" Margin="107,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.916,0.456"/>
-                                        <Label Content="extra" HorizontalAlignment="Left" Margin="17,154,0,0" VerticalAlignment="Top"/>
-                                        <TextBox x:Name="TextBoxextra" HorizontalAlignment="Left" Height="23" Margin="107,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.991,0.792"/>
-                                        <Button Click="AddNurseButton_OnClick" x:Name="AddDevice" Content="Add Device" HorizontalAlignment="Left" Margin="134,198,0,0" VerticalAlignment="Top" Width="75"/>
+                                        <TextBox x:Name="TextBoxUserDeviceInfo" Text="{Binding NewDeviceInfo}" HorizontalAlignment="Left" Height="23" Margin="107,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.916,0.456"/>
+                                        <Label Content="Extra" HorizontalAlignment="Left" Margin="17,154,0,0" VerticalAlignment="Top"/>
+                                        <TextBox x:Name="TextBoxextra" Text="{Binding NewExtra}" HorizontalAlignment="Left" Height="23" Margin="107,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.991,0.792"/>
+                                        <Button Command="{Binding AddNewDevice}" x:Name="AddDevice" Content="Add Device" HorizontalAlignment="Left" Margin="134,198,0,0" VerticalAlignment="Top" Width="75"/>
                                     </Grid>
-                                </TabItem>
-                                <TabItem Header="TabItem">
-                                    <Grid Background="#FFE5E5E5"/>
                                 </TabItem>
                             </TabControl>
 
