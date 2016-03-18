@@ -73,6 +73,7 @@
     <Compile Include="UnitTests\DeviceTests.cs" />
     <Compile Include="UnitTests\NurseTests.cs" />
     <Compile Include="UnitTests\BedTests.cs" />
+    <Compile Include="UnitTests\PatientTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\smartivAdmin.Data\smartivAdmin.Data.csproj">
