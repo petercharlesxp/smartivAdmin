@@ -6,10 +6,18 @@ namespace smartivAdmin.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("wimtach.device")]
-    public partial class device
+    [Table("wimtach.device_old")]
+    public partial class device_old
     {
-        public int deviceID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public device_old()
+        {
+            beds = new HashSet<bed>();
+        }
+
+        [Key]
+        [StringLength(45)]
+        public string deviceID { get; set; }
 
         [Required]
         [StringLength(45)]
@@ -24,9 +32,7 @@ namespace smartivAdmin.Data
         [StringLength(45)]
         public string extra { get; set; }
 
-        public override string ToString()
-        {
-            return deviceMacID;
-        }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<bed> beds { get; set; }
     }
 }

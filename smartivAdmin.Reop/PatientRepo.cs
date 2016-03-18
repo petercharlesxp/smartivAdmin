@@ -38,11 +38,20 @@ namespace smartivAdmin.Reop
 
         public List<patientbasicinfo> GetAllPatients()
         {
-            var query = from q in _context.patientbasicinfoes
-                        orderby q.firstName
-                        select q;
+            try
+            {
+                var query = from q in _context.patientbasicinfoes
+                            orderby q.firstName
+                            select q;
 
-            return query.ToList();
+                return query.ToList();
+            }
+            catch (Exception e)
+            {
+                
+                throw e;
+            }
+
         }
     }
 }

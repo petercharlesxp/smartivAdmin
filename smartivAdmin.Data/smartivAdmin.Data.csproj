@@ -64,6 +64,7 @@
     <Compile Include="department.cs" />
     <Compile Include="device.cs" />
     <Compile Include="devicerecordlog.cs" />
+    <Compile Include="device_old.cs" />
     <Compile Include="floor.cs" />
     <Compile Include="gauge.cs" />
     <Compile Include="nurse.cs" />

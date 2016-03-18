@@ -9,6 +9,7 @@ namespace smartivAdmin.Data
     [Table("wimtach.user")]
     public partial class user
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public user()
         {
             subscriptions = new HashSet<subscription>();
@@ -33,6 +34,7 @@ namespace smartivAdmin.Data
         [StringLength(45)]
         public string sessionKey { get; set; }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<subscription> subscriptions { get; set; }
     }
 }

@@ -9,6 +9,7 @@ namespace smartivAdmin.Data
     [Table("wimtach.department")]
     public partial class department
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public department()
         {
             rooms = new HashSet<room>();
@@ -20,6 +21,7 @@ namespace smartivAdmin.Data
         [StringLength(45)]
         public string departmentDesc { get; set; }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<room> rooms { get; set; }
     }
 }

@@ -39,9 +39,5 @@ namespace smartivAdmin.Data
 
         [StringLength(45)]
         public string deviceCurrentBattery { get; set; }
-
-        public int deviceID { get; set; }
-
-        public virtual device device { get; set; }
     }
 }

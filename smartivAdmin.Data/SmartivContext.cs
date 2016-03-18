@@ -15,6 +15,7 @@ namespace smartivAdmin.Data
         public virtual DbSet<bed> beds { get; set; }
         public virtual DbSet<department> departments { get; set; }
         public virtual DbSet<device> devices { get; set; }
+        public virtual DbSet<device_old> device_old { get; set; }
         public virtual DbSet<floor> floors { get; set; }
         public virtual DbSet<gauge> gauges { get; set; }
         public virtual DbSet<nurse> nurses { get; set; }
@@ -65,6 +66,32 @@ namespace smartivAdmin.Data
             modelBuilder.Entity<device>()
                 .Property(e => e.extra)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<device_old>()
+                .Property(e => e.deviceID)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<device_old>()
+                .Property(e => e.deviceMacID)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<device_old>()
+                .Property(e => e.deviceStatus)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<device_old>()
+                .Property(e => e.deviceInfo)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<device_old>()
+                .Property(e => e.extra)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<device_old>()
+                .HasMany(e => e.beds)
+                .WithRequired(e => e.device_old)
+                .HasForeignKey(e => e.deviceMacID)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<floor>()
                 .Property(e => e.floorDesc)
@@ -223,12 +250,5 @@ namespace smartivAdmin.Data
                 .Property(e => e.deviceTimeStamp)
                 .IsUnicode(false);
         }
-
-        //public int SaveChangesCount { get; private set; }
-        //public int SaveChanges()
-        //{
-        //    this.SaveChangesCount++;
-        //    return 1;
-        //}
     }
 }
