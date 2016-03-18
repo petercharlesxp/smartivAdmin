@@ -26,5 +26,10 @@ namespace smartivAdmin.Data
         public virtual ICollection<patientadmissioninfo> patientadmissioninfoes { get; set; }
 
         public virtual room room { get; set; }
+
+        public override string ToString()
+        {
+            return deviceMacID;
+        }
     }
 }

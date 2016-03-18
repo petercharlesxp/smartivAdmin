@@ -12,6 +12,36 @@ namespace smartivAdmin.ViewModels
 {
     public class HomeViewModel: BindableBase
     {
+        private SmartivContext context;
+        private DeviceRepo deviceRepo;
+        private NurseRepo nurseRepo;
+        private BedRepo bedRepo;
+
+        private List<device> availableDevices;
+
+        public List<device> AvailableDevices
+        {
+            get { return availableDevices; }
+            set { SetProperty(ref availableDevices, value); }
+        }
+
+        private List<nurse> avaiableNurses;
+
+        public List<nurse> AvaiableNurses
+        {
+            get { return avaiableNurses; }
+            set { SetProperty(ref avaiableNurses, value); }
+        }
+
+        private List<bed> availabeBeds;
+
+        public List<bed> AvailableBeds
+        {
+            get { return availabeBeds; }
+            set { availabeBeds = value; }
+        }
+        
+
         private string newDeviceMacID;
 
         public string NewDeviceMacID
@@ -48,9 +78,18 @@ namespace smartivAdmin.ViewModels
 
         public HomeViewModel()
         {
+            context = new SmartivContext();
+            deviceRepo = new DeviceRepo(context);
+            availableDevices = deviceRepo.GetAvaiableDevices();
+            nurseRepo = new NurseRepo(context);
+            avaiableNurses = nurseRepo.GetAvaiableNurses();
+            bedRepo = new BedRepo(context);
+            availabeBeds = bedRepo.GetAllBeds();
+
             AddNewDevice = new DelegateCommand(Execute, CanExecute)
                 .ObservesProperty(() => NewDeviceMacID)
                 .ObservesProperty(() => NewDeviceStatus);
+
         }
 
         private bool CanExecute()

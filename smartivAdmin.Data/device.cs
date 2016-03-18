@@ -30,5 +30,10 @@ namespace smartivAdmin.Data
         public string extra { get; set; }
 
         public virtual ICollection<patientbasicinfo> patientbasicinfoes { get; set; }
+
+        public override string ToString()
+        {
+            return deviceMacID;
+        }
     }
 }

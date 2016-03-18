@@ -37,6 +37,26 @@ namespace smartivAdmin.Reop
 
         }
 
+        public List<device> GetAvaiableDevices()
+        {
+            var query = from d in _context.devices
+                        where d.deviceStatus == "ONLINE"
+                        orderby d.deviceMacID
+                        select d;
+
+            return query.ToList();
+        }
+
+        public List<string> GetAvaiableDevicesMac()
+        {
+            var query = from d in _context.devices
+                        where d.deviceStatus == "ONLINE"
+                        orderby d.deviceMacID
+                        select d.deviceMacID;
+
+            return query.ToList();
+        }
+
         public List<device> GetAllDevices()
         {
             //using (var dbContext = new SmartivContext())
@@ -146,6 +166,7 @@ namespace smartivAdmin.Reop
         //    }
         //    return true;
         //}
+
 
     }
 }

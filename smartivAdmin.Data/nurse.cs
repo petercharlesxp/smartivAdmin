@@ -28,5 +28,10 @@ namespace smartivAdmin.Data
         public int userId { get; set; }
 
         public virtual ICollection<patientadmissioninfo> patientadmissioninfoes { get; set; }
+
+        public override string ToString()
+        {
+            return firstName +" " + lastName;
+        }
     }
 }

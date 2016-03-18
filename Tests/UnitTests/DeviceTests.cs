@@ -21,6 +21,18 @@ namespace Tests.UnitTests
         }
 
         [TestMethod]
+        public void GetAvailableDevices()
+        {
+            var context = new SmartivContext();
+
+            var deviceRepo = new DeviceRepo(context);
+
+            var devices = deviceRepo.GetAvaiableDevices();
+
+            Assert.AreEqual(23, devices.Count);
+        }  
+
+        [TestMethod]
         public void CreateDevice_saves_a_device_context()
         {
             var context = new SmartivContext();

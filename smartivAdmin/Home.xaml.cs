@@ -399,19 +399,22 @@ namespace smartivAdmin
         }
         private void ButtonAssignBed_OnClick(object sender, RoutedEventArgs e)
         {
-            DataRowView A = (DataRowView)ComboBox_AddPatientBed.SelectedItem;
-            if (A != null) { LableBed_AddPatientTab.Content = A.Row.Field<int>("bedId"); }
+            //DataRowView A = (DataRowView)ComboBox_AddPatientBed.SelectedItem;
+            //if (A != null) { LableBed_AddPatientTab.Content = A.Row.Field<int>("bedId"); }
+            LableBed_AddPatientTab.Content = ComboBox_AddPatientBed.SelectedItem;
         }
         private void ButtonAssignDevice_OnClick(object sender, RoutedEventArgs e)
         {
-            DataRowView A = (DataRowView)ComboBox_AddPatientDevice.SelectedItem;
-            if (A != null) { LableDeviceMac_AddPatientTab.Content = A.Row.Field<string>("deviceID"); }
+            //DataRowView A = (DataRowView)ComboBox_AddPatientDevice.SelectedItem;
+            //if (A != null) { LableDeviceMac_AddPatientTab.Content = A.Row.Field<string>("deviceID"); }
+            LableDeviceMac_AddPatientTab.Content = ComboBox_AddPatientDevice.SelectedItem;
         }
         private void ButtonAssignNurse_OnClick(object sender, RoutedEventArgs e)
         {
-            DataRowView A = (DataRowView)ComboBox_AddPatientNurse.SelectedItem;
+            //DataRowView A = (DataRowView)ComboBox_AddPatientNurse.SelectedItem;
 
-            if (A != null) { lableNurse_AddPatientTab.Content = A.Row.Field<int>("nurseId"); }
+            //if (A != null) { lableNurse_AddPatientTab.Content = A.Row.Field<int>("nurseId"); }
+            lableNurse_AddPatientTab.Content = ComboBox_AddPatientNurse.SelectedItem;
         }
         private void OnRefreshNurseClick_TabAddPatient(object sender, RoutedEventArgs e)
         {
