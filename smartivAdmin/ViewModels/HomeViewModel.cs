@@ -24,6 +24,16 @@ namespace smartivAdmin.ViewModels
             get { return availableDevices; }
             set { SetProperty(ref availableDevices, value); }
         }
+        
+
+        private device selectedDevice;
+
+        public device SelectedDevice
+        {
+            get { return selectedDevice; }
+            set { SetProperty(ref selectedDevice, value); }
+        }
+        
 
         private List<nurse> avaiableNurses;
 
@@ -33,12 +43,29 @@ namespace smartivAdmin.ViewModels
             set { SetProperty(ref avaiableNurses, value); }
         }
 
+        private nurse selectedNurse;
+
+        public nurse SelectedNurse
+        {
+            get { return selectedNurse; }
+            set { SetProperty(ref selectedNurse, value); }
+        }
+        
+
         private List<bed> availabeBeds;
 
         public List<bed> AvailableBeds
         {
             get { return availabeBeds; }
             set { availabeBeds = value; }
+        }
+
+        private bed selectedBed;
+
+        public bed SelectedBed
+        {
+            get { return selectedBed; }
+            set { SetProperty(ref selectedBed, value); }
         }
         
 

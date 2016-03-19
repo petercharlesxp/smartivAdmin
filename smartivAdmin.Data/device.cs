@@ -24,9 +24,9 @@ namespace smartivAdmin.Data
         [StringLength(45)]
         public string extra { get; set; }
 
-        public override string ToString()
-        {
-            return deviceMacID;
-        }
+        //public override string ToString()
+        //{
+        //    return deviceMacID;
+        //}
     }
 }

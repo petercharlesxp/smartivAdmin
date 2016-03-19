@@ -31,9 +31,9 @@ namespace smartivAdmin.Data
 
         public virtual room room { get; set; }
 
-        public override string ToString()
-        {
-            return deviceMacID;
-        }
+        //public override string ToString()
+        //{
+        //    return deviceMacID;
+        //}
     }
 }

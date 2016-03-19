@@ -96,33 +96,48 @@
                                             <Label Content="Patient Basic Information" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
                                             <Label Content="Assign Device " HorizontalAlignment="Left" Margin="286,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.184,0.038" FontSize="18" FontWeight="Bold"/>
                                             <Label Content="Avalable Devices" HorizontalAlignment="Left" Margin="286,49,0,0" VerticalAlignment="Top"/>
-                                            <ComboBox x:Name="ComboBox_AddPatientDevice" ItemsSource="{Binding AvailableDevices}" DisplayMemberPath="deviceMacID" SelectedValue="deviceMacID, Mode=TwoWay" SelectedValuePath="{Binding SelectedValuePath}" HorizontalAlignment="Left" Margin="286,75,0,0" VerticalAlignment="Top" Width="192" />
+                                            <ComboBox x:Name="ComboBox_AddPatientDevice" ItemsSource="{Binding AvailableDevices}" DisplayMemberPath="deviceMacID" SelectedItem="{Binding SelectedDevice, Mode=TwoWay}" HorizontalAlignment="Left" Margin="286,75,0,0" VerticalAlignment="Top" Width="192" />
                                             <Separator HorizontalAlignment="Left" Height="26" Margin="274,120,0,0" VerticalAlignment="Top" Width="264"/>
                                             <Label Content="Assign Nurse" HorizontalAlignment="Left" Margin="286,133,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
                                             <Label Content="Avalable Nurse" HorizontalAlignment="Left" Margin="286,167,0,0" VerticalAlignment="Top"/>
-                                            <ComboBox x:Name="ComboBox_AddPatientNurse" ItemsSource="{Binding AvaiableNurses}" SelectedValue="nurseId, Mode=TwoWay" SelectedValuePath="{Binding SelectedValuePath}" HorizontalAlignment="Left" Margin="286,193,0,0" VerticalAlignment="Top" Width="192"/>
+                                            <ComboBox x:Name="ComboBox_AddPatientNurse" ItemsSource="{Binding AvaiableNurses}" SelectedItem="{Binding SelectedNurse, Mode=TwoWay}" HorizontalAlignment="Left" Margin="286,193,0,0" VerticalAlignment="Top" Width="192">
+                                                <ComboBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <TextBlock Text="{Binding firstName}" />
+                                                            <TextBlock Text=" " />
+                                                            <TextBlock Text="{Binding lastName}" />
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ComboBox.ItemTemplate>
+                                            </ComboBox>
                                             <Button Content="Add " Click="AddNewPatientOnClick_TabAddPatient" HorizontalAlignment="Left" Margin="163,332,0,0" VerticalAlignment="Top" Width="91" RenderTransformOrigin="0.505,2.136"/>
-                                            <Button Click="ButtonAssignDevice_OnClick" x:Name="ButtonAssignDevice" Content="Assign" HorizontalAlignment="Left" Margin="286,102,0,0" VerticalAlignment="Top" Width="75"/>
-                                            <Button Click="ButtonAssignNurse_OnClick" x:Name="ButtonAssignNurse" Content="Assign" HorizontalAlignment="Left" Margin="286,222,0,0" VerticalAlignment="Top" Width="75"/>
+                                            <!--<Button Click="ButtonAssignDevice_OnClick" x:Name="ButtonAssignDevice" Content="Assign" HorizontalAlignment="Left" Margin="286,102,0,0" VerticalAlignment="Top" Width="75"/>-->
+                                            <!--<Button Click="ButtonAssignNurse_OnClick" x:Name="ButtonAssignNurse" Content="Assign" HorizontalAlignment="Left" Margin="286,222,0,0" VerticalAlignment="Top" Width="75"/>-->
                                             <Separator HorizontalAlignment="Left" Height="26" Margin="274,240,0,0" VerticalAlignment="Top" Width="264" RenderTransformOrigin="0.504,5.5"/>
                                             <Label Content="Device :" HorizontalAlignment="Left" Margin="11,193,0,0" VerticalAlignment="Top"/>
                                             <Label Content="Nurse :" HorizontalAlignment="Left" Margin="11,240,0,0" VerticalAlignment="Top"/>
-                                            <Label x:Name="LableDeviceMac_AddPatientTab" Content="" HorizontalAlignment="Left" Margin="67,193,0,0" VerticalAlignment="Top" Width="198"/>
-                                            <Label x:Name="lableNurse_AddPatientTab" Content="" HorizontalAlignment="Left" Margin="67,240,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.553,0.115" Width="198"/>
-                                            <Button Click="OnRefreshDeviceClick_TabAddPatient" x:Name="RefreshAvalableDevice_List" HorizontalAlignment="Left" Margin="483,75,0,0" VerticalAlignment="Top" Width="25" Height="22">
-                                                <Image x:Name="RefreshButtonImage1" Source="./Resources/refreshicon.png" Height="15" Width="20" />
-                                            </Button>
-                                            <Button  Click="OnRefreshNurseClick_TabAddPatient" HorizontalAlignment="Left" Margin="483,193,0,0" VerticalAlignment="Top" Width="25" Height="22">
-                                                <Image x:Name="RefreshButtonImage2" Source="./Resources/refreshicon.png" Height="15" Width="20" />
-                                            </Button>
+                                            <Label x:Name="LableDeviceMac_AddPatientTab" Content="{Binding SelectedDevice.deviceMacID, Mode=TwoWay}" HorizontalAlignment="Left" Margin="67,193,0,0" VerticalAlignment="Top" Width="198"/>
+                                            <Label x:Name="lableNurse_AddPatientTab" Content="{Binding SelectedNurse.firstName, Mode=TwoWay}" HorizontalAlignment="Left" Margin="67,240,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.553,0.115" Width="198" Visibility="Hidden"/>
+                                            <!--<Button Click="OnRefreshDeviceClick_TabAddPatient" x:Name="RefreshAvalableDevice_List" HorizontalAlignment="Left" Margin="483,75,0,0" VerticalAlignment="Top" Width="25" Height="22">
+                                                <Image x:Name="RefreshButtonImage1" Source="./Resources/refreshicon.png" Height="15" Width="20" Visibility="Hidden" />
+                                            </Button>-->
+                                            <!--<Button  Click="OnRefreshNurseClick_TabAddPatient" HorizontalAlignment="Left" Margin="483,193,0,0" VerticalAlignment="Top" Width="25" Height="22">
+                                                <Image x:Name="RefreshButtonImage2" Source="./Resources/refreshicon.png" Height="15" Width="20" Visibility="Hidden" />
+                                            </Button>-->
                                             <Label Content="Assign Bed" HorizontalAlignment="Left" Margin="286,266,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
-                                            <ComboBox x:Name="ComboBox_AddPatientBed" ItemsSource="{Binding AvailableBeds}" DisplayMemberPath="deviceMacID" SelectedValue="bedId, Mode=TwoWay" SelectedValuePath="{Binding SelectedValuePath}"  HorizontalAlignment="Left" Margin="287,305,0,0" VerticalAlignment="Top" Width="191"/>
-                                            <Button  Click="OnRefreshBedClick_TabAddPatient" HorizontalAlignment="Left" Margin="483,305,0,0" VerticalAlignment="Top" Width="25">
-                                                <Image x:Name="RefreshButtonImage3" Source="./Resources/refreshicon.png" Height="15" Width="20" />
-                                            </Button>
+                                            <ComboBox x:Name="ComboBox_AddPatientBed" ItemsSource="{Binding AvailableBeds}" DisplayMemberPath="deviceMacID" SelectedItem="{Binding SelectedBed, Mode=TwoWay}"  HorizontalAlignment="Left" Margin="287,305,0,0" VerticalAlignment="Top" Width="191"/>
+                                            <!--<Button  Click="OnRefreshBedClick_TabAddPatient" HorizontalAlignment="Left" Margin="483,305,0,0" VerticalAlignment="Top" Width="25">
+                                                <Image x:Name="RefreshButtonImage3" Source="./Resources/refreshicon.png" Height="15" Width="20" Visibility="Hidden" />
+                                            </Button>-->
                                             <Label Content="Bed ID :" HorizontalAlignment="Left" Margin="11,282,0,0" VerticalAlignment="Top"/>
-                                            <Button Click="ButtonAssignBed_OnClick" x:Name="ButtonAssignBed" Content="Assign" HorizontalAlignment="Left" Margin="287,332,0,0" VerticalAlignment="Top" Width="75"/>
-                                            <Label x:Name="LableBed_AddPatientTab" Content="" HorizontalAlignment="Left" Margin="67,282,0,0" VerticalAlignment="Top" Width="198" Height="27" RenderTransformOrigin="0.66,1.889"/>
+                                            <!--<Button Click="ButtonAssignBed_OnClick" x:Name="ButtonAssignBed" Content="Assign" HorizontalAlignment="Left" Margin="287,332,0,0" VerticalAlignment="Top" Width="75"/>-->
+                                            <Label x:Name="LableBed_AddPatientTab" Content="{Binding SelectedBed.deviceMacID}" HorizontalAlignment="Left" Margin="67,282,0,0" VerticalAlignment="Top" Width="198" Height="27" RenderTransformOrigin="0.66,1.889"/>
+                                            <TextBlock HorizontalAlignment="Left" Margin="67,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
+                                                <Run Text="{Binding SelectedNurse.firstName, Mode=TwoWay}"></Run>
+                                                <Run Text=" "></Run>
+                                                <Run Text="{Binding SelectedNurse.lastName, Mode=TwoWay}"></Run>
+                                            </TextBlock>
                                         </Grid>
 
 

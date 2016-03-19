@@ -31,9 +31,9 @@ namespace smartivAdmin.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<patientadmissioninfo> patientadmissioninfoes { get; set; }
 
-        public override string ToString()
-        {
-            return firstName + " " + lastName;
-        }
+        //public override string ToString()
+        //{
+        //    return firstName + " " + lastName;
+        //}
     }
 }
