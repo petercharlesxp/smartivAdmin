@@ -18,17 +18,17 @@ namespace smartivAdmin.Reop
             _context = context;
         }
 
-        public device AddDevice(string deviceMacIDin
-            , string deviceStatusin
-            , string deviceInfoin
-            , string extrain)
+        public device AddDevice(string deviceMacIDin,
+            string deviceStatusin,
+            string deviceInfoin,
+            string extrain)
         {
             var devin = new device
             {
-                deviceMacID = deviceMacIDin
-                , deviceStatus = deviceStatusin
-                , deviceInfo = deviceInfoin
-                , extra = extrain
+                deviceMacID = deviceMacIDin,
+                deviceStatus = deviceStatusin,
+                deviceInfo = deviceInfoin,
+                extra = extrain
             };
             _context.devices.Add(devin);
             _context.SaveChanges();
@@ -80,7 +80,7 @@ namespace smartivAdmin.Reop
                         orderby d.deviceMacID
                         select d;
 
-            return await query.ToListAsync();                         
+            return await query.ToListAsync();
         }
 
 

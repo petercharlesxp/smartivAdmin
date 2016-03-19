@@ -49,6 +49,7 @@
     <Compile Include="BedRepo.cs" />
     <Compile Include="DeviceRepo.cs" />
     <Compile Include="NurseRepo.cs" />
+    <Compile Include="PatientadmissioninfoRepo.cs" />
     <Compile Include="PatientRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
