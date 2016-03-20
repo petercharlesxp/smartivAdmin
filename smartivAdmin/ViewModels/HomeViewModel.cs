@@ -112,21 +112,11 @@ namespace smartivAdmin.ViewModels
             set { SetProperty(ref newSex, value); }
         }
 
-        //private string assingedDeviceMacID="";
-
-        //public string AssignedDeviceMacID
-        //{
-        //    get { return assingedDeviceMacID; }
-        //    set { SetProperty(ref assingedDeviceMacID, value); }
-        //}
-        
-
         public DelegateCommand AddNewPatient { get; set; }
         private void ExecuteAddNewPatient()
         {
             var context = new SmartivContext();
             var patientRepo = new PatientRepo(context);
-            //AssignedDeviceMacID = SelectedDevice.deviceMacID;
             try
             {
                 var newPatient = patientRepo.AddPatient(
@@ -134,7 +124,6 @@ namespace smartivAdmin.ViewModels
                     NewLastName,
                     NewMiddleName,
                     NewSex,
-                    //AssignedDeviceMacID
                     SelectedDevice.deviceMacID
                     );
                 NewPatientID = newPatient.patientID;
@@ -151,7 +140,7 @@ namespace smartivAdmin.ViewModels
             bool b = !String.IsNullOrWhiteSpace(NewFirstName)
                 && !String.IsNullOrWhiteSpace(NewLastName)
                 && !String.IsNullOrWhiteSpace(NewSex)
-                && !String.IsNullOrWhiteSpace(SelectedDevice.deviceMacID)
+                && (SelectedDevice != null)          
                 ;
             return b;
         }
@@ -201,7 +190,6 @@ namespace smartivAdmin.ViewModels
 
             deviceRepo = new DeviceRepo(context);
             availableDevices = deviceRepo.GetAvaiableDevices();
-            SelectedDevice = availableDevices[0];
             nurseRepo = new NurseRepo(context);
             avaiableNurses = nurseRepo.GetAvaiableNurses();
             bedRepo = new BedRepo(context);
@@ -212,7 +200,7 @@ namespace smartivAdmin.ViewModels
                 .ObservesProperty(() => NewFirstName)
                 .ObservesProperty(() => NewLastName)
                 .ObservesProperty(() => NewSex)
-                .ObservesProperty(() => NewDeviceMacID);
+                .ObservesProperty(() => SelectedDevice);
                 
 
             AddNewDevice = new DelegateCommand(Execute, CanExecute)
