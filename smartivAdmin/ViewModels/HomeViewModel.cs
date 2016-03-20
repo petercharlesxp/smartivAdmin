@@ -17,6 +17,7 @@ namespace smartivAdmin.ViewModels
         private NurseRepo nurseRepo;
         private BedRepo bedRepo;
         private PatientRepo patientRepo;
+        private PatientadmissioninfoRepo patientadmissioninfoRepo;
 
         /// <summary>
         /// Assign Patient
@@ -127,6 +128,11 @@ namespace smartivAdmin.ViewModels
                     SelectedDevice.deviceMacID
                     );
                 NewPatientID = newPatient.patientID;
+                var newPatientadmissioninfoRepo = patientadmissioninfoRepo.AddPatientadmissioninfo(
+                    NewPatientID,
+                    SelectedNurse.nurseId,
+                    SelectedBed.bedId
+                    );
 
             }
             catch (Exception e)
@@ -195,6 +201,7 @@ namespace smartivAdmin.ViewModels
             bedRepo = new BedRepo(context);
             availabeBeds = bedRepo.GetAllBeds();
             patientRepo = new PatientRepo(context);
+            patientadmissioninfoRepo = new PatientadmissioninfoRepo(context);
 
             AddNewPatient = new DelegateCommand(ExecuteAddNewPatient, CanExecuteAddNewPatient)
                 .ObservesProperty(() => NewFirstName)
