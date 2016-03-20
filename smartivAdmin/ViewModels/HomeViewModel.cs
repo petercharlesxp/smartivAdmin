@@ -16,6 +16,11 @@ namespace smartivAdmin.ViewModels
         private DeviceRepo deviceRepo;
         private NurseRepo nurseRepo;
         private BedRepo bedRepo;
+        private PatientRepo patientRepo;
+
+        /// <summary>
+        /// Assign Patient
+        /// </summary>
 
         private List<device> availableDevices;
 
@@ -67,7 +72,93 @@ namespace smartivAdmin.ViewModels
             get { return selectedBed; }
             set { SetProperty(ref selectedBed, value); }
         }
+
+        /// <summary>
+        /// Add New Patient
+        /// </summary>
+        /// 
+
+        public int NewPatientID { get; set; }
+
+        private string newFirstName;
+
+        public string NewFirstName
+        {
+            get { return newFirstName; }
+            set { SetProperty(ref newFirstName, value); }
+        }
+
+        private string newLastName;
+
+        public string NewLastName
+        {
+            get { return newLastName; }
+            set { SetProperty(ref newLastName, value); }
+        }
+
+        private string newMiddleName;
+
+        public string NewMiddleName
+        {
+            get { return newMiddleName; }
+            set { SetProperty(ref newMiddleName, value); }
+        }
+
+        private string newSex;
+
+        public string NewSex
+        {
+            get { return newSex; }
+            set { SetProperty(ref newSex, value); }
+        }
+
+        //private string assingedDeviceMacID="";
+
+        //public string AssignedDeviceMacID
+        //{
+        //    get { return assingedDeviceMacID; }
+        //    set { SetProperty(ref assingedDeviceMacID, value); }
+        //}
         
+
+        public DelegateCommand AddNewPatient { get; set; }
+        private void ExecuteAddNewPatient()
+        {
+            var context = new SmartivContext();
+            var patientRepo = new PatientRepo(context);
+            //AssignedDeviceMacID = SelectedDevice.deviceMacID;
+            try
+            {
+                var newPatient = patientRepo.AddPatient(
+                    NewFirstName,   
+                    NewLastName,
+                    NewMiddleName,
+                    NewSex,
+                    //AssignedDeviceMacID
+                    SelectedDevice.deviceMacID
+                    );
+                NewPatientID = newPatient.patientID;
+
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+        }
+        private bool CanExecuteAddNewPatient()
+        {
+            bool b = !String.IsNullOrWhiteSpace(NewFirstName)
+                && !String.IsNullOrWhiteSpace(NewLastName)
+                && !String.IsNullOrWhiteSpace(NewSex)
+                && !String.IsNullOrWhiteSpace(SelectedDevice.deviceMacID)
+                ;
+            return b;
+        }
+        
+        /// <summary>
+        /// Add New Device
+        /// </summary>
 
         private string newDeviceMacID;
 
@@ -103,15 +194,26 @@ namespace smartivAdmin.ViewModels
 
         public DelegateCommand AddNewDevice { get; set; }
 
+
         public HomeViewModel()
         {
             context = new SmartivContext();
+
             deviceRepo = new DeviceRepo(context);
             availableDevices = deviceRepo.GetAvaiableDevices();
+            SelectedDevice = availableDevices[0];
             nurseRepo = new NurseRepo(context);
             avaiableNurses = nurseRepo.GetAvaiableNurses();
             bedRepo = new BedRepo(context);
             availabeBeds = bedRepo.GetAllBeds();
+            patientRepo = new PatientRepo(context);
+
+            AddNewPatient = new DelegateCommand(ExecuteAddNewPatient, CanExecuteAddNewPatient)
+                .ObservesProperty(() => NewFirstName)
+                .ObservesProperty(() => NewLastName)
+                .ObservesProperty(() => NewSex)
+                .ObservesProperty(() => NewDeviceMacID);
+                
 
             AddNewDevice = new DelegateCommand(Execute, CanExecute)
                 .ObservesProperty(() => NewDeviceMacID)
@@ -121,7 +223,8 @@ namespace smartivAdmin.ViewModels
 
         private bool CanExecute()
         {
-            return !String.IsNullOrWhiteSpace(NewDeviceMacID) && !String.IsNullOrWhiteSpace(NewDeviceStatus);
+            return !String.IsNullOrWhiteSpace(NewDeviceMacID)
+                && !String.IsNullOrWhiteSpace(NewDeviceStatus);
         }
 
         private void Execute()

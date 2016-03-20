@@ -77,14 +77,14 @@
                                 <Grid>
                                     <ScrollViewer HorizontalScrollBarVisibility="Visible">
                                         <Grid Background="#FFE5E5E5"  >
-                                            <TextBox x:Name="FirstName_AddPatientTab" Height="23" TextWrapping="Wrap" Margin="107,58,303,313"/>
-                                            <TextBox x:Name="LastName_AddPatientTab" Height="23" TextWrapping="Wrap" Margin="107,89,303,282"/>
+                                            <TextBox x:Name="FirstName_AddPatientTab" Text="{Binding NewFirstName}" Height="23" TextWrapping="Wrap" Margin="107,58,303,313"/>
+                                            <TextBox x:Name="LastName_AddPatientTab" Text="{Binding NewLastName}" Height="23" TextWrapping="Wrap" Margin="107,89,303,282"/>
                                             <TextBox x:Name="MiddleName_AddPatientTab" Height="23" TextWrapping="Wrap" Margin="107,120,303,251"/>
                                             <Label x:Name="Lable_FirstName" Content="FirstName" HorizontalAlignment="Left" Margin="11,58,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.038"/>
                                             <Label x:Name="Lable_MiddleName" Content="MiddleName" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.038"/>
                                             <Label x:Name="Lable_LastName" Content="LastName" HorizontalAlignment="Left" Margin="11,89,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.038"/>
                                             <Label x:Name="Lable_Sex" Content="Sex" HorizontalAlignment="Left" Margin="10,151,0,0" VerticalAlignment="Top"/>
-                                            <ComboBox x:Name="SexCombobox_AddPatient"  HorizontalAlignment="Left" Margin="107,155,0,0" VerticalAlignment="Top" Width="78" SelectedIndex="0">
+                                            <ComboBox x:Name="SexCombobox_AddPatient" SelectedValuePath="Tag" SelectedValue="{Binding NewSex, Mode=TwoWay}" HorizontalAlignment="Left" Margin="107,155,0,0" VerticalAlignment="Top" Width="78" SelectedIndex="0">
                                                 <ComboBoxItem Tag="MALE">MALE</ComboBoxItem>
                                                 <ComboBoxItem Tag="FEMALE">FEMALE</ComboBoxItem>
                                             </ComboBox>
@@ -111,7 +111,7 @@
                                                     </DataTemplate>
                                                 </ComboBox.ItemTemplate>
                                             </ComboBox>
-                                            <Button Content="Add " Click="AddNewPatientOnClick_TabAddPatient" HorizontalAlignment="Left" Margin="163,332,0,0" VerticalAlignment="Top" Width="91" RenderTransformOrigin="0.505,2.136"/>
+                                            <Button Content="Add" Command="{Binding AddNewPatient}" HorizontalAlignment="Left" Margin="163,332,0,0" VerticalAlignment="Top" Width="91" RenderTransformOrigin="0.505,2.136"/>
                                             <!--<Button Click="ButtonAssignDevice_OnClick" x:Name="ButtonAssignDevice" Content="Assign" HorizontalAlignment="Left" Margin="286,102,0,0" VerticalAlignment="Top" Width="75"/>-->
                                             <!--<Button Click="ButtonAssignNurse_OnClick" x:Name="ButtonAssignNurse" Content="Assign" HorizontalAlignment="Left" Margin="286,222,0,0" VerticalAlignment="Top" Width="75"/>-->
                                             <Separator HorizontalAlignment="Left" Height="26" Margin="274,240,0,0" VerticalAlignment="Top" Width="264" RenderTransformOrigin="0.504,5.5"/>
